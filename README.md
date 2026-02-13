@@ -1,1 +1,1 @@
-# TRENIKOV-KALENDAR
+# treninkovy-kalendar
