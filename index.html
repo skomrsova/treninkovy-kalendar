@@ -473,9 +473,9 @@
             
             async function loadData() {
                 try {
-                    const result = await window.storage.get('training-calendar-data');
-                    if (result && result.value) {
-                        setData(JSON.parse(result.value));
+                    const savedData = localStorage.getItem('training-calendar-data');
+                    if (savedData) {
+                        setData(JSON.parse(savedData));
                     }
                 } catch (error) {
                     console.log('No saved data found');
@@ -486,7 +486,7 @@
             async function saveData(newData) {
                 setData(newData);
                 try {
-                    await window.storage.set('training-calendar-data', JSON.stringify(newData));
+                    localStorage.setItem('training-calendar-data', JSON.stringify(newData));
                     setSaveIndicator(true);
                     setTimeout(() => setSaveIndicator(false), 2000);
                 } catch (error) {
